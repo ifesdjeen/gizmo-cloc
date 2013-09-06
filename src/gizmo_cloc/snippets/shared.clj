@@ -1,6 +1,7 @@
 (ns gizmo-cloc.snippets.shared
-  (:require [net.cgrand.enlive-html :as html]))
+  (:require [net.cgrand.enlive-html :as html]
+            [clojurewerkz.gizmo.enlive :refer [defsnippet]]))
 
-(html/defsnippet header-snippet "templates/shared/header.html"
-  [:#content :*]
+(defsnippet header-snippet "templates/shared/header.html"
+  [*header]
   [env])

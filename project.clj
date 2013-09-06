@@ -5,7 +5,11 @@
                  [clojurewerkz/gizmo "0.1.0-SNAPSHOT"]
                  [org.clojure/tools.nrepl "0.2.3"]
                  [org.clojure/tools.cli "0.2.2"]
-                 [cloc/indexer "0.1.0-SNAPSHOT"]]
+
+                 [cloc/indexer "0.1.0-SNAPSHOT"]
+                 [org.apache.lucene/lucene-core "4.4.0"]
+                 [org.apache.lucene/lucene-analyzers-common "4.4.0"]
+                 [org.apache.lucene/lucene-queryparser "4.4.0"]]
   :profiles {:dev {:dependencies [[org.clojure/tools.namespace "0.2.4"]]}}
   :source-paths ["src"]
   :resource-paths ["resources"]

@@ -7,7 +7,8 @@
                            require-services register-snippet-reload]]
              [config :refer [load-config!]]
              [service :refer [start-all! all-services]]]
-            [gizmo-cloc.entities :as entities]))
+            [gizmo-cloc.entities :as entities]
+            [gizmo-cloc.entities.search :as search]))
 
 (alter-var-root #'*out* (constantly *out*))
 
@@ -23,4 +24,5 @@
   (register-snippet-reload "gizmo-cloc")
 
   (entities/init-index-from-classpath!)
+  (search/init-search-index! @entities/index)
   (start-all!))

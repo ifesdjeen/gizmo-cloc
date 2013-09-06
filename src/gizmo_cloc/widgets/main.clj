@@ -1,9 +1,10 @@
 (ns gizmo-cloc.widgets.main
-    (:require [clojurewerkz.gizmo.widget :refer [defwidget]]
-              [gizmo-cloc.snippets.main :as snippets]
-              [gizmo-cloc.entities :as entities]))
+  (:require [clojurewerkz.gizmo.widget :refer [defwidget]]
+            [gizmo-cloc.snippets.main :as snippets]
+            [gizmo-cloc.entities :as entities]
+            [gizmo-cloc.entities.search :as search]))
 
-(defwidget index-content
+(defwidget libraries
   :view snippets/index-snippet
   :fetch (fn [_] (entities/libraries)))
 
@@ -19,5 +20,10 @@
            {:library-name library-name
             :namespace    namespace
             :docs         (entities/docs library-name namespace)}))
+
+(defwidget search
+  :view snippets/search-snippet
+  :fetch (fn [{:keys [q]}]
+           (search/search q)))
 
 (defwidget empty-widget)
