@@ -1,16 +1,20 @@
 <div id="content">
-  <ul id="libraries">
-    <li><a href="${library-path}">${library-name}</a></li>
+  <ul snippet="libraries-list">
+    <li snippet="libraries-list-item">
+      <a href="${library-path}">${library-name}</a>
+    </li>
   </ul>
 
-  <ul id="namespaces">
-    <li><a href="${namespace-path}">${namespace-name}</a></li>
+  <ul snippet="namespaces-list">
+    <li snippet="namespaces-list-item">
+      <a href="${namespace-path}">${namespace-name}</a>
+    </li>
   </ul>
 
-  <div id="namespace-docs">
-    <span id="docstring"></span>
-    <ul>
-      <li>${file} ${name} ${doc}</li>
+  <div snippet="namespace-docs">
+    <span snippet="ns-docstring"></span>
+    <ul snippet="docstring-list">
+      <li snippet="docstring-list-item">${file} ${name} ${doc}</li>
     </ul>
   </div>
 </div>
