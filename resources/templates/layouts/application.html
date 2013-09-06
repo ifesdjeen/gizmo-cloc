@@ -3,24 +3,27 @@
     <title>testapp</title>
     <link href="/stylesheets/vendor/bootstrap.min.css" rel="stylesheet">
     <link href="/stylesheets/vendor/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="/stylesheets/vendor/solarized_dark.css" rel="stylesheet">
   </head>
   <body>
     <widget rel="testapp.widgets.shared/header" />
 
     <div class="container bs-docs-container">
       <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-3">
           <widget id="left-content" />
         </div>
         <div class="col-md-3">
           <widget id="middle-content" />
         </div>
-        <div class="col-md-7">
+        <div class="col-md-6">
           <widget id="main-content" />
         </div>
       </div>
     </div>
 
-    <script src="/javascripts/vendor/bootstrap.min.js"></script>
+
+    <script src="/javascripts/vendor/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
   </body>
 </html>

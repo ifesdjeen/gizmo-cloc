@@ -1,20 +1,33 @@
 <div id="content">
-  <ul snippet="libraries-list">
-    <li snippet="libraries-list-item">
-      <a href="${library-path}">${library-name}</a>
-    </li>
-  </ul>
 
-  <ul snippet="namespaces-list">
-    <li snippet="namespaces-list-item">
-      <a href="${namespace-path}">${namespace-name}</a>
-    </li>
-  </ul>
+  <div snippet="libraries-snippet">
+    <h2>Libraries</h2>
+    <ul snippet="libraries-list" class="list-unstyled">
+      <li snippet="libraries-list-item">
+        <a href="${library-path}">${library-name}</a>
+      </li>
+    </ul>
+  </div>
 
+  <div snippet="namespaces-snippet">
+    <h2>Namespaces</h2>
+    <ul snippet="namespaces-list" class="list-unstyled">
+      <li snippet="namespaces-list-item">
+        <a href="${namespace-path}">${namespace-name}</a>
+      </li>
+    </ul>
+  </div>
   <div snippet="namespace-docs">
+    <h2>Docs</h2>
     <span snippet="ns-docstring"></span>
-    <ul snippet="docstring-list">
-      <li snippet="docstring-list-item">${file} ${name} ${doc}</li>
+
+    <ul snippet="docstring-list" class="list-unstyled">
+      <li snippet="docstring-list-item">
+        <h4>${name}</h4>
+        <pre>${file}</pre>
+        <p>${doc}</p>
+        <pre><code class="clojure">${source}</code></pre>
+      </li>
     </ul>
   </div>
 </div>
