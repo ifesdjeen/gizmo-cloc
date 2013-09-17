@@ -1,10 +1,10 @@
-(ns gizmo-cloc.handlers.main)
+(ns gizmo-cloc.handlers.main
+  (:require [clojurewerkz.gizmo.config :refer [settings]]))
 
 (defn index
   [request]
   {:render :html
    :widgets {:left-content 'gizmo-cloc.widgets.main/libraries
-             :middle-content 'gizmo-cloc.widgets.main/empty-widget
              :main-content 'gizmo-cloc.widgets.main/empty-widget
              }})
 
@@ -12,17 +12,15 @@
   [request]
   {:render :html
    :library-name (get-in request [:route-params :library])
-   :widgets {:left-content 'gizmo-cloc.widgets.main/libraries
-             :middle-content 'gizmo-cloc.widgets.main/library-namespaces
-             :main-content 'gizmo-cloc.widgets.main/empty-widget}})
+   :widgets {:left-content 'gizmo-cloc.widgets.main/library-namespaces
+             :main-content 'gizmo-cloc.widgets.main/library-description}})
 
 (defn namespace-show
   [{:keys [route-params]}]
   {:render :html
    :library-name (:library route-params)
    :namespace (:namespace route-params)
-   :widgets {:left-content 'gizmo-cloc.widgets.main/libraries
-             :middle-content 'gizmo-cloc.widgets.main/library-namespaces
+   :widgets {:left-content 'gizmo-cloc.widgets.main/library-namespaces
              :main-content  'gizmo-cloc.widgets.main/library-namespace-docs}})
 
 (defn search
@@ -31,6 +29,5 @@
     (assert q "Param can't be nil")
     {:render :html
      :widgets {:left-content 'gizmo-cloc.widgets.main/libraries
-               :middle-content 'gizmo-cloc.widgets.main/empty-widget
                :main-content 'gizmo-cloc.widgets.main/search}
      :q q}))

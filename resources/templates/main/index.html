@@ -18,16 +18,31 @@
     </ul>
   </div>
 
+  <div snippet="library-description">
+    <ul snippet="namespace-list" class="list-unstyled">
+      <li snippet="namespace-list-item">
+        <h4><a href="${namespace-path}">${namespace-name}</a></h4>
+        <pre snippet="ns-docstring"></pre>
+        <h5>Public variables and functions:</h5>
+        <ul snippet="namespace-public-vars-list"></ul>
+      </li>
+    </ul>
+  </div>
+
+  <ul snippet="namespace-public-vars-list" class="list-unstyled list-inline">
+    <li snippet="namespace-public-vars-list-item"><a href="${public-link}">${public-name}</a></li>
+  </ul>
+
   <div snippet="namespace-docs">
-    <h2>Docs</h2>
+    <h2>API Documentation</h2>
     <pre snippet="ns-docstring"></pre>
 
     <ul snippet="docstring-list" class="list-unstyled">
       <li snippet="docstring-list-item">
-        <h4>${name}</h4>
-        <pre>${file}</pre>
+        <h4 id="${name}">${name}</h4>
+        <p class="text-muted">${file}</p>
         <pre>${doc}</pre>
-        <pre><code class="clojure">${source}</code></pre>
+        <pre snippet="code"><code class="clojure">${source}</code></pre>
       </li>
     </ul>
   </div>
@@ -37,9 +52,9 @@
     <ul snippet="search-result-list" class="list-unstyled">
       <li snippet="search-result-list-item">
         <h4>${name}</h4>
-        <pre><a href="${library-path}">${lib}</a> (<a href="${namespace-path}">${namespace}</a>)</pre>
+        <p class="text-muted"><a href="${library-path}">${lib}</a> (<a href="${namespace-path}">${namespace}</a>)</p>
         <pre>${docs}</pre>
-        <pre><code class="clojure">${source}</code></pre>
+        <pre snippet="code"><code class="clojure">${source}</code></pre>
       </li>
     </ul>
   </div>

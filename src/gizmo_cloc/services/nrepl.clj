@@ -15,4 +15,4 @@
   :start (fn [service]
            (reset-state service
                         (let [{:keys [port]} (config service)]
-                          (nrepl/start-server :port 4555)))))
+                          (nrepl/start-server :port port)))))
