@@ -58,6 +58,7 @@
 
 (defn search
   [query]
-  (map (fn [{:keys [namespace] :as all}]
-         (inject-source namespace all)) (search/search query)))
+  (when (not (empty? query))
+    (map (fn [{:keys [namespace] :as all}]
+           (inject-source namespace all)) (search/search query))))
 ;; (init-index-from-classpath! (cp/classpath))

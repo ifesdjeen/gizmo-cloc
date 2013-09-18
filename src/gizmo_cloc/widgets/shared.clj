@@ -4,4 +4,4 @@
 
 (defwidget header
   :view shared/header-snippet
-  :fetch (fn [_]))
+  :fetch (fn [env] (or (get-in env [:query-params "q"]) "")))

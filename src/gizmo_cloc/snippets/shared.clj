@@ -4,4 +4,6 @@
 
 (defsnippet header-snippet "templates/shared/header.html"
   [*header]
-  [env])
+  [query-string]
+  [*search-box] (fn [node]
+                  (assoc-in node [:attrs :value] query-string)))
