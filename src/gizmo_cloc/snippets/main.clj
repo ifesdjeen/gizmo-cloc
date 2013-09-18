@@ -28,8 +28,7 @@
   (html/clone-for [public publics]
                   [html/any-node] (html/replace-vars {:public-link (str (routes/namespace-path :library library
                                                                                             :namespace namespace) "#" (:name public))
-                                                      :public-name (name (:name public))}))
-  )
+                                                      :public-name (name (:name public))})))
 
 (defsnippet library-description-snippet "templates/main/index.html"
   [*library-description]
@@ -42,8 +41,7 @@
                   [*ns-docstring] (when-let [doc (:doc docs)]
                                     (html/content doc))
                   [*namespace-public-vars-list] (html/substitute
-                                                 (namespace-public-var-list library-name name (:publics docs)))
-                  ))
+                                                 (namespace-public-var-list library-name name (:publics docs)))))
 
 
 (defsnippet library-namespace-docs-snippet "templates/main/index.html"
