@@ -13,6 +13,7 @@
   :stop (fn [service]
           (nrepl/stop-server (state service)))
   :start (fn [service]
-           (reset-state service
-                        (let [{:keys [port]} (config service)]
-                          (nrepl/start-server :port port)))))
+           (when-let [conf (config service)]
+             (reset-state service
+                          (let [{:keys [port]} conf]
+                            (nrepl/start-server :port port))))))
