@@ -4,8 +4,11 @@
     <link href="/stylesheets/vendor/bootstrap.min.css" rel="stylesheet">
     <link href="/stylesheets/vendor/bootstrap-docs.css" rel="stylesheet">
     <link href="/stylesheets/vendor/solarized_dark.css" rel="stylesheet">
+    <link href="/stylesheets/vendor/trace_widget.css" rel="stylesheet">
   </head>
   <body>
+    <widget rel="clojurewerkz.gizmo.widget/trace-widget" />
+
     <widget rel="gizmo-cloc.widgets.shared/header" />
 
     <div class="container bs-docs-container">
@@ -15,10 +18,19 @@
         </div>
         <div class="col-md-9">
           <widget id="main-content" />
+
         </div>
       </div>
     </div>
 
+    <footer class="bs-footer" role="contentinfo">
+      <div class="container">
+        <p>This website was developed by the
+          &nbsp;<a href='http://github.com/clojurewerkz'>ClojureWerkz Team</a>.</p>
+        <p>Follow us on Twitter:
+          &nbsp;<a href='http://twitter.com/clojurewerkz'>ClojureWerkz</a>,&nbsp;<a href='http://twitter.com/michaelklishin'>Michael Klishin</a>,&nbsp;<a href='http://twitter.com/ifesdjeen'>Alex P</a></p>
+      </div>
+    </footer>
 
     <script src="/javascripts/vendor/jquery-1.9.1.min.js"></script>
     <script src="/javascripts/vendor/highlight.pack.js"></script>

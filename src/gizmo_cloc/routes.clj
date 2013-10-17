@@ -1,7 +1,7 @@
 (ns gizmo-cloc.routes
-    (:use [clojurewerkz.route-one.compojure])
-    (:require [compojure.core :as compojure]
-              [compojure.route :as route]))
+  (:use [clojurewerkz.route-one.compojure])
+  (:require [compojure.core :as compojure]
+            [compojure.route :as route]))
 
 (compojure/defroutes main-routes
   (GET root        "/"                             request (gizmo-cloc.handlers.main/index request))
@@ -10,4 +10,4 @@
   (GET namespace   "/libs/:library/nss/:namespace" request (gizmo-cloc.handlers.main/namespace-show request))
   (GET favicon     "/favicon.ico"                  _       (fn [_] {:render :nothing}))
   (GET jquery-map "/javascripts/vendor/jquery.min.map" _  (fn [_] {:render :nothing}))
-  (route/not-found "Page not found"))
+  (catch-all                                       request (gizmo-cloc.handlers.main/page-not-found request)))

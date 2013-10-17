@@ -4,8 +4,8 @@
             [ring.middleware.params :refer [wrap-params]]
             [ring.middleware.resource :refer [wrap-resource]]
             [ring.middleware.reload :refer [wrap-reload]]
-            [ring.middleware.stacktrace :refer [wrap-stacktrace]]
-
+            [ring.middleware.stacktrace :refer [wrap-stacktrace-web]]
+            [clojurewerkz.gizmo.middleware.logging :refer [wrap-logger]]
             [gizmo-cloc.routes :as routes]))
 
 (def app
@@ -14,4 +14,5 @@
       wrap-params
       (wrap-resource "public")
       wrap-reload
-      (wrap-stacktrace :color? true)))
+      wrap-stacktrace-web
+      wrap-logger))

@@ -31,3 +31,9 @@
      :widgets {:left-content 'gizmo-cloc.widgets.main/libraries
                :main-content 'gizmo-cloc.widgets.main/search}
      :q q}))
+
+(defn page-not-found
+  [_]
+  {:render :resource
+   :status 404
+   :path   "templates/404.html"})

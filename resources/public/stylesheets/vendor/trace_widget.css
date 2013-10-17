@@ -1,0 +1,31 @@
+.trace-widget {
+    width: 900px;
+    height: 500px;
+    position: fixed;
+    background: #fff;
+    z-index: 1000;
+    border: 2px solid black;
+    left: -900px;
+    transition: left 250ms;
+}
+
+.trace-widget:hover {
+    left: 0px;
+}
+
+.trace-btn {
+    position: absolute;
+    top: 20px;
+    right: -78px;
+    padding: 10px 5px 10px 5px;
+    background: #fff;
+    border: 2px solid black;
+    border-left: 2px solid white;
+    border-radius: 0px 5px 5px 0;
+}
+
+.trace-wrapper {
+    overflow: scroll;
+    height: 486px;
+    padding: 10px;
+}

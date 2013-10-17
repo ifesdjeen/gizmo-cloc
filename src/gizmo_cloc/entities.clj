@@ -3,7 +3,8 @@
             [clojure.repl :as repl]
             [cloc.indexer :as indexer]
             [cemerick.pomegranate :refer [add-dependencies]]
-            [gizmo-cloc.entities.search :as search]))
+            [gizmo-cloc.entities.search :as search]
+            [clojurewerkz.balagan.core :as balagan]))
 
 (defonce index (atom ::unset))
 
@@ -24,16 +25,13 @@
     (some (fn [[qualifier version]]
             (re-matches (re-pattern (str "(.*)" (name qualifier) "-" version ".jar")) path))
           libs)))
+
 (defn init-with-libs!
   "Use cloc/indexer to generate an index from classpath."
   [libs]
   (add-dependencies :coordinates libs
                     :repositories (merge cemerick.pomegranate.aether/maven-central
                                          {"clojars" "http://clojars.org/repo"}))
-
-
-
-
   (reset! index (indexer/index-classpath (filter (partial matches-libs? libs) (cp/classpath)))))
 
 (defn libraries
@@ -43,9 +41,8 @@
 (defn docs
   "Docs for `namespace` of `library`"
   [library namespace]
-  (update-in (indexer/docs @index library namespace)
-             [:publics]
-             #(map (partial inject-source namespace) %)))
+  (balagan/transform (indexer/docs @index library namespace)
+                     [:publics :*] (partial inject-source namespace)))
 
 (defn namespaces
   "Namespaces for certain library"
